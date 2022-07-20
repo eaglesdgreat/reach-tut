@@ -1,0 +1,19 @@
+{
+  "name": "tut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@reach-sh/stdlib": "^0.1.11-rc.3",
+    "browser-resolve": "^2.0.0",
+    "esmify": "^2.1.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
