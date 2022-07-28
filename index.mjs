@@ -43,21 +43,32 @@ async function ExecuteGame() {
   const OUTCOME = ['Bob wins', 'Draw', 'Alice wins'];
 
   const Player = (who) => ({
-    getHand: () => {
+    ...stdlib.hasRandom,
+    getHand: async () => {
       const hand = Math.floor(Math.random() * 3);
       console.log(`${who} played ${HAND[hand]}.`);
+      if (Math.random() <= 0.01) {
+        for (let i = 0; i < 10; i++) {
+          console.log(`${who} takes their sweet time sending it back...`);
+          await stdlib.wait(1);
+        }
+      }
 
       return hand;
     },
     seeOutCome: (outcome) => {
       console.log(`${who} saw ${OUTCOME[outcome]}`);
-    } 
+    },
+    informTimeout: () => {
+      console.log(`${who} observed a timeout`)
+    }
   })
 
   await Promise.all([
     ctcAlice.p.Alice({
       ...Player('Alice'),
       wager: stdlib.parseCurrency(5),
+      deadline: 10,
     }),
     ctcBob.p.Bob({
       ...Player('Bob'),

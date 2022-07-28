@@ -3,4 +3,3 @@ node_modules
 .reach
 .vscode
 package-lock.json
-build
