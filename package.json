@@ -11,7 +11,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server.js",
+    "bundle": "browserify -p esmify index.mjs --standalone Bundle > ./build/bundle.js",
+    "reach": "../reach compile",
+    "compile": "npm run reach && npm run bundle"
   },
   "keywords": [],
   "author": "",
